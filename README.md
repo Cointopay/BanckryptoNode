@@ -5,7 +5,7 @@ This crypto wallet is the first hybrid blockchain bank wallet. You can transfer 
 
 ## Configuration of Node
 
-- ** Open the coinectar.war file with a zip tool (Winrar)
-- ** Open file /WEB-INF/properties/application.properties
-- ** Update database connection [MONGODB_CONNECTION]. Please note the coinectar only support MongoDB.
-- ** If you change the database name in the [MONGODB_CONNECTION], then also change it here [MONGODB_NAME]
+- Open the coinectar.war file with a zip tool (Winrar)
+- Open file /WEB-INF/properties/application.properties
+- Update database connection [MONGODB_CONNECTION]. Please note the coinectar only support MongoDB.
+- If you change the database name in the [MONGODB_CONNECTION], then also change it here [MONGODB_NAME]
