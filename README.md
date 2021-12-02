@@ -1,6 +1,6 @@
 ## Banckrypto EURx
 You will need a Tomcat environment installed to run this full node EURx servlet. Servlets are java based web containers that provide application functionality.
-It will function as a full node copy, similar as how e.g. Ripple operates. The benefit is very fast and free EURx transfers via Coinectar. Flexible blocksizing, tickMiner technology and is big data enabled. The backend is using MongoDB for optimal scaling.
+It will function as a full node copy, similar as how e.g. Ripple operates. The benefit is very fast and free EURx transfers via the Coinectar stack. Flexible blocksizing, tickMiner technology and is big data enabled. The backend is using MongoDB for optimal scaling.
 
 ## API
 When your users create a wallet via the front end on banckrypto.com they are immediately API enabled.
