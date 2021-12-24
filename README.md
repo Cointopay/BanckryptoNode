@@ -6,6 +6,7 @@ It will function as a full node copy, similar as how e.g. Ripple operates. The b
 When your users create a wallet via the front end on banckrypto.com they are immediately API enabled.
 Use JSON/RPC type of connectivity utilizing the wallet name and the password and point it to https://artemis.cointopay.com/coinectar/bc or your own Banckrypto Node.
 Do explorer look ups and wallet handling via the API. As easy is that.
+https://documenter.getpostman.com/view/3658638/UVRDHkwm
 
 
 ## About the Banckrypto.com Full Node
