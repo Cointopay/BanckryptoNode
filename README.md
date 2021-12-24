@@ -27,8 +27,9 @@ This crypto wallet is the first hybrid blockchain bank wallet. You can transfer 
 ## OPTIONAL USE OWN MONGODB TO STORE THE BANCKRYPTO BLOCKCHAIN LOCALLY
 - Open the coinectar.war file with a zip tool (Winrar)
 - Open file /WEB-INF/properties/application.properties
-- Update database connection [MONGODB_CONNECTION]. Please note the coinectar only support MongoDB.
+- Update database connection [MONGODB_CONNECTION]. Please note the coinectar only support MongoDB. (setup of mongodb is not described here, use google)
 - If you change the database name in the [MONGODB_CONNECTION], then also change it here [MONGODB_NAME]
+Format of the connection string is mongodb+srv://username:password@yourdomain.com/coinectar?retryWrites=true&w=majority
 
 ## Licensing statement from Cointopay.com
 You may run this software for the purpose of participating in the Banckrypto EURx network. To protect the network Cointopay acts as the guardian of the software to make a statement that it is not allowed to do anything else then what it was intended for without prior consent of Cointopay.com. It is not allowed to reverse engineer or copy any of the software traits used in this software and network. One of its primary reasons to exist is act as a payment network with maximum benefit to it's users, being zero transfer fee, near instant and with limited supply. It is intended to be used in a banking like environment to enable transactions that benefits its participants. You may not cause harm to the functioning network by any means and you are envited to grow the network and it's functionality (also on github). There is currently no similar public network available. Please log an issue in case you have any questions or want to participate.
