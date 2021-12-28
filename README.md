@@ -17,17 +17,22 @@ This crypto wallet is the first hybrid blockchain bank wallet. You can transfer 
 ## Configuration of Node
 - We recommend to setup Tomcat 8.5+ on Ubuntu, but feel free to run Tomcat 8.5+ on Windows (installation and hardening is not described here, use google)
 - Configure your Tomcat with domain and ssl certificate (not described here, use google)
+- Configure MongoDB on your localhost (if you want to use your own then please read the "USE OWN MONGODB" below)
 - Download the coinectar.war
 - Open the coinectar.war file with a zip tool (Winrar)
 - Open file /WEB-INF/properties/application.properties, change the WALLETS_DIR to your own folder (e.g. /home/coinectar or C:\<your folder> for Windows)
 - You can deploy it now to your Tomcat 8.5+ environment
-- Once deployed it will sync with the network and you can allow to create wallets and send and receive Banckrypto EURx
+- Once deployed, run the following command to initialize the blockchain sync
+- It will sync with the network and you can allow to create wallets and send and receive Banckrypto EURx
 
 Notes:
 - Server Hardening: You are responsible for server hardening, you are storing private keys data locally. Give this topic the attention it needs.
 - Tick mining: we use a proprietary mechanism to dynamically mine Banckrypto EURx blocks. For for the time being it is centralized.
 
-## OPTIONAL USE OWN MONGODB TO STORE THE BANCKRYPTO BLOCKCHAIN LOCALLY
+## USE OWN MONGODB TO STORE THE BANCKRYPTO BLOCKCHAIN LOCALLY
+** If you are not configuring the application mongodb_connection, then the application will assume the connection is to the localhost (mongodb://localhost:27017/coinectar?retryWrites=false), your application cannot run without MongoDB!!
+** We recommend to use mongodb.com they have a free tier use that is easy to setup the connection string, but don't forget to whitelist the ip your are connecting from (database access).
+
 - Open the coinectar.war file with a zip tool (Winrar)
 - Open file /WEB-INF/properties/application.properties
 - Update database connection [MONGODB_CONNECTION]. Please note the coinectar only support MongoDB. (setup of mongodb is not described here, use google)
