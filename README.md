@@ -15,29 +15,49 @@ This crypto wallet is the first hybrid blockchain bank wallet. You can transfer 
 
 
 ## Configuration of Node
-- We recommend to setup Tomcat 8.5+ on Ubuntu, but feel free to run Tomcat 8.5+ on Windows (installation and hardening is not described here, use google)
-- Configure your Tomcat with domain and ssl certificate (not described here, use google)
-- Configure MongoDB on your localhost (if you want to use your own then please read the "USE OWN MONGODB" below)
-- Download the coinectar.war
-- Open the coinectar.war file with a zip tool (Winrar)
-- Open file /WEB-INF/properties/application.properties, change the WALLETS_DIR to your own folder (e.g. /home/coinectar or C:\<your folder> for Windows)
-- You can deploy it now to your Tomcat 8.5+ environment
-- Once deployed, run the following command to initialize the blockchain sync
-- It will sync with the network and you can allow to create wallets and send and receive Banckrypto EURx
+1) We recommend to setup Tomcat 8.5+ on Ubuntu, but feel free to run Tomcat 8.5+ on Windows (installation and hardening is not described here, use google)
+2) Configure your Tomcat with domain and ssl certificate (not described here, use google)
+3) Configure MongoDB on your localhost (not described here, use google), use alternatives mentioned below "USE OWN MONGODB" or "USE FREE MONGODB.COM"
+4) Download the coinectar.war right here from this github
+5) Open the coinectar.war file with a zip tool (Winrar) by changing the extension to coinectar.war.zip
+6) Open file /WEB-INF/properties/application.properties:
+  - change the WALLETS_DIR to your own folder (e.g. /home/coinectar or C:\<your folder> for Windows)
+  - MONGODB_NAME
+  - MONGODB_CONNECTION (if you leave blank it will try to connect to localhost, if no mongodb available it will fail)
+  - NODE_URL which is the https url it will run from
+7) Save it, and change the name back to coinectar.war. You can deploy it now to your Tomcat 8.5+ environment on the /manager endpoint
+8) Once deployed, run the following command to initialize the blockchain sync <NODE_URL>/coinectar/node/init
+9) The blockchain will sync with the network and you can use the API as mentioned above to create wallets and send and receive Banckrypto EURx
+>> Continue with deploying the front end https://github.com/Cointopay/Banckrypto if you want to make use of that
 
 Notes:
-- Server Hardening: You are responsible for server hardening, you are storing private keys data locally. Give this topic the attention it needs.
-- Tick mining: we use a proprietary mechanism to dynamically mine Banckrypto EURx blocks. For for the time being it is centralized.
+- Server Hardening: You are responsible for server hardening/security, you are storing private keys data locally. Give this topic the attention it needs.
+- Tick mining: we use a proprietary mechanism to mine Banckrypto EURx dynamic blocks. For for the time being it is centralized, benefit is zero transaction fees.
 
 ## USE OWN MONGODB TO STORE THE BANCKRYPTO BLOCKCHAIN LOCALLY
-** If you are not configuring the application mongodb_connection, then the application will assume the connection is to the localhost (mongodb://localhost:27017/coinectar?retryWrites=false), your application cannot run without MongoDB!!
-** We recommend to use mongodb.com they have a free tier use that is easy to setup the connection string, but don't forget to whitelist the ip your are connecting from (database access).
+** If you are not configuring the application mongodb_connection, then the application will assume the connection is to the localhost (mongodb://localhost:27017/coinectar?retryWrites=false), your application cannot run without MongoDB!! You have to install it to make this work.
+** We recommend to use mongodb.com they have a free tier use that is easy to setup the connection string, but don't forget to whitelist the ip your are connecting from (database access). See "USE FREE MONGODB.COM" section below.
 
 - Open the coinectar.war file with a zip tool (Winrar)
 - Open file /WEB-INF/properties/application.properties
-- Update database connection [MONGODB_CONNECTION]. Please note the coinectar only support MongoDB. (setup of mongodb is not described here, use google)
+- Update database connection [MONGODB_CONNECTION]. Please note the coinectar only support MongoDB. (setup of your own mongodb is not described here, use google)
 - If you change the database name in the [MONGODB_CONNECTION], then also change it here [MONGODB_NAME]
 Format of the connection string is mongodb+srv://username:password@yourdomain.com/coinectar?retryWrites=true&w=majority
+
+## USE FREE MONGODB.COM TO STORE THE BANCKRYPTO BLOCKCHAIN
+1) create account at mongodb.com
+2) Go to Databases
+3) Browse Collections
+4) Create Database (enter database name "coinectar" and collection name "addresses"), rest will be created automatically
+5) Go to Database Access tab, Add new database user
+6) Enter username cointopay and select password (use long password or autogenerate it)
+7) Add a specific privilege "readWrite" @ coinectar Collection*
+8) Remove the built-in role "read and write to any database" by clicking on the thrash icon
+9) You can restrict to specific current Clusters if you have multiple Clusters in your account (extra security)
+10) Go to menu Network access and whitelist the ip on "IP Access list" that you are connecting from
+11) Now go back to Databases in menu, click connect, select Driver Java and Version latest, copy the connection string
+12) Construct the string that you need in the application.properties:
+MONGODB_CONNECTION=mongodb+srv://<username>:<password>@<replace this to your>.mongodb.net/<yourdbname>?retryWrites=true&w=majority
 
 ## Licensing statement from Cointopay.com
 You may run this software for the purpose of participating in the Banckrypto EURx network. To protect the network Cointopay acts as the guardian of the software to make a statement that it is not allowed to do anything else then what it was intended for without prior consent of Cointopay.com. It is not allowed to reverse engineer or copy any of the software traits used in this software and network. One of its primary reasons to exist is act as a payment network with maximum benefit to it's users, being zero transfer fee, near instant and with limited supply. It is intended to be used in a banking like environment to enable transactions that benefits its participants. You may not cause harm to the functioning network by any means and you are envited to grow the network and it's functionality (also on github). There is currently no similar public network available. Please log an issue in case you have any questions or want to participate.
