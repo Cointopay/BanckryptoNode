@@ -31,6 +31,7 @@ This crypto wallet is the first hybrid blockchain bank wallet. You can transfer 
 >> Continue with deploying the front end https://github.com/Cointopay/Banckrypto if you want to make use of that
 
 Notes:
+- It will function as a full node copy, similar as how e.g. Ripple operates. The benefit is very fast and free EURx transfers via the Coinectar stack. Flexible blocksizing, tickMiner technology and is big data enabled. The backend is using MongoDB for optimal scaling. See a live interaction with one such node as this on banckrypto.com.
 - Server Hardening: You are responsible for server hardening/security, you are storing private keys data locally. Give this topic the attention it needs.
 - Tick mining: we use a proprietary mechanism to mine Banckrypto EURx dynamic blocks. For for the time being it is centralized, benefit is zero transaction fees.
 - For Ubuntu linux: configure /etc/systemd/system/multi-user.target.wants/tomcat9.service and either set ProtectSystem=false or add a ReadWritePaths=/path/to/wallets config line item, otherwise tomcat cannot write to the path. Dont forget: sudo systemctl daemon-reload ; sudo service tomcat9 restart (Make sure tomcat user has 750 access rights on entire folder structure).
