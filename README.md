@@ -33,6 +33,7 @@ This crypto wallet is the first hybrid blockchain bank wallet. You can transfer 
 Notes:
 - Server Hardening: You are responsible for server hardening/security, you are storing private keys data locally. Give this topic the attention it needs.
 - Tick mining: we use a proprietary mechanism to mine Banckrypto EURx dynamic blocks. For for the time being it is centralized, benefit is zero transaction fees.
+- For Ubuntu linux: configure /etc/systemd/system/multi-user.target.wants/tomcat9.service and either set ProtectSystem=false or add a ReadWritePaths=/path/to/wallets config line item, otherwise tomcat cannot write to the path. Dont forget: sudo systemctl daemon-reload ; sudo service tomcat9 restart (Make sure tomcat user has 750 access rights on entire folder structure).
 
 ## USE OWN MONGODB TO STORE THE BANCKRYPTO BLOCKCHAIN LOCALLY
 ** If you are not configuring the application mongodb_connection, then the application will assume the connection is to the localhost (mongodb://localhost:27017/coinectar?retryWrites=false), your application cannot run without MongoDB!! You have to install it to make this work.
