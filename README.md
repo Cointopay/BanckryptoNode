@@ -64,6 +64,7 @@ MONGODB_CONNECTION=mongodb+srv://username:password@replace-this-to-your.mongodb.
 ## TROUBLESHOOTING 
 1) Make sure that you have a valid certificate
 2) Make sure to run https:/<server>/coinectar/node/init to initialize the node
+3) If issues with syncing drop the blocks table in mongodb then initialize again
 
 ## Licensing statement from Cointopay.com
 You may run this software for the purpose of participating in the Banckrypto EURx network. To protect the network Cointopay acts as the guardian of the software to make a statement that it is not allowed to do anything else then what it was intended for without prior consent of Cointopay.com. It is not allowed to reverse engineer or copy any of the software traits used in this software and network. One of its primary reasons to exist is act as a payment network with maximum benefit to it's users, being zero transfer fee, near instant and with limited supply. It is intended to be used in a banking like environment to enable transactions that benefits its participants. You may not cause harm to the functioning network by any means and you are envited to grow the network and it's functionality (also on github). There is currently no similar public network available. Please log an issue in case you have any questions or want to participate.
